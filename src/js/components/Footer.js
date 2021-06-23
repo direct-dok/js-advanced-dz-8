@@ -1,4 +1,4 @@
-Vue.component('footer-shop', {
+const FooterShop = {
     template: `
     <footer class="footer">
         <div class="width-1600">
@@ -66,4 +66,6 @@ Vue.component('footer-shop', {
 
     </footer>
     `
-})
+}
+
+export default FooterShop

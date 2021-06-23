@@ -1,4 +1,4 @@
-Vue.component('basket-total-price', {
+const BasketTotalPrice = {
     props: ['cartpsroducts'], 
     computed: {
         totalPrice: function () {
@@ -50,12 +50,6 @@ Vue.component('basket-total-price', {
                 </div>
             </div>
     `
-})
+}
 
-
-Vue.component('basket-form', {
-    props: [], 
-    template: `
-    
-    `
-})
+export default BasketTotalPrice

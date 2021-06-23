@@ -1,4 +1,4 @@
-Vue.component('advantages-shop', {
+const Advantages = {
     template: `
     <section class="advantages">
             <div class="width-1600">
@@ -25,4 +25,6 @@ Vue.component('advantages-shop', {
             </div>
         </section>
     `
-})
+}
+
+export default Advantages

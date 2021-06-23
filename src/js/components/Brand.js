@@ -1,4 +1,4 @@
-Vue.component('brand-shop', {
+const BrandShop = {
     template: `
     <section class="brand">
     <div class="brand__wrapper">
@@ -13,4 +13,6 @@ Vue.component('brand-shop', {
     </div>
 </section>
     `
-})
+}
+
+export default BrandShop

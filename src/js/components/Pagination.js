@@ -1,4 +1,4 @@
-Vue.component('pagination-shop', {
+const Pagination = {
     template: `
     <section class="catalog-pagination">
             <div class="width-1600">
@@ -46,4 +46,6 @@ Vue.component('pagination-shop', {
             </div>
         </section>
     `
-})
+}
+
+export default Pagination

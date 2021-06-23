@@ -1,4 +1,4 @@
-Vue.component('filter-shop', {
+const FilterShop = {
     template: `
     <section class="catalog-filter">
             <div class="width-1600">
@@ -90,4 +90,6 @@ Vue.component('filter-shop', {
             </div>
         </section>
     `
-})
+}
+
+export default FilterShop

@@ -1,4 +1,4 @@
-Vue.component('header-shop', {
+const HeaderShop = {
     props: ['cartprod'], 
     data: function() {
         return {
@@ -18,7 +18,7 @@ Vue.component('header-shop', {
     <div class="width-1600">
         <div class="header__wrapper">
             <div class="header__left-block">
-                <a href="/">
+                <a href="index.html">
                     <svg width="44" height="38" viewBox="0 0 44 38" fill="none" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" class="header__logo-icon">
                         <rect width="44" height="38" fill="url(#pattern0)" />
@@ -54,7 +54,7 @@ Vue.component('header-shop', {
                             fill="#E8E8E8" class="header__icon-hover" />
                     </svg>
                 </a>
-                <a href="/cart.html" class="header__cart-link">
+                <a href="cart.html" class="header__cart-link">
                     <span class="header__cont-product-cart">
                         <span class="header__number-product" v-if="countProductsBasket">{{ countProductsBasket }}</span>
                     </span>
@@ -74,9 +74,9 @@ Vue.component('header-shop', {
                         <li class="navigation__item-menu">
                             <a href="" class="navigation__link-menu">Pages</a>
                             <ul class="navigation__submenu">
-                                <li class="navigation__item-submenu"><a href="/catalog.html"
+                                <li class="navigation__item-submenu"><a href="catalog.html"
                                         class="navigation__link-submenu">Catalog</a></li>
-                                <li class="navigation__item-submenu"><a href="/cart.html"
+                                <li class="navigation__item-submenu"><a href="cart.html"
                                         class="navigation__link-submenu">Basket</a></li>
                             </ul>
                         </li>
@@ -140,4 +140,6 @@ Vue.component('header-shop', {
     </div>
 </header>
     `
-})
+}
+
+export default HeaderShop

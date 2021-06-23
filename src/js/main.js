@@ -1,41 +1,68 @@
+import Advantages from './components/Advantages'
+import BasketTotalPrice from './components/Basket-total-price'
+import Basket from './components/Basket'
+import BrandShop from './components/Brand'
+import Catalogs from './components/Catalog'
+import FilterShop from './components/Filter'
+import FooterShop from './components/Footer'
+import HeaderShop from './components/Header'
+import PageName from './components/Name-page'
+import NoCartProduct from './components/No-cart-product'
+import Pagination from './components/Pagination'
+import Stocks from './components/Stocks'
+
 let app = new Vue({
     el: '.app',
+    components: {
+        'advantages-shop': Advantages, 
+        'basket-total-price': BasketTotalPrice, 
+        'basket': Basket, 
+        'brand-shop': BrandShop, 
+        'catalogs': Catalogs, 
+        'filter-shop': FilterShop, 
+        'footer-shop': FooterShop, 
+        'header-shop': HeaderShop, 
+        'pagename': PageName, 
+        'no-cart-product': NoCartProduct,
+        'pagination-shop': Pagination, 
+        'stocks-shop': Stocks
+    },
     data: {
         products: [],
         cartProduts: []
     },
     methods: {
-        getProducts: function(url) { // Получаем товары с сервера
+        getProducts: function (url) { // Получаем товары с сервера
             return fetch(url)
                 .then(result => result.json());
         },
-        checkStorage: function() {
-            if(!localStorage.getItem('products')) {
+        checkStorage: function () {
+            if (!localStorage.getItem('products')) {
                 this.getProducts('https://raw.githubusercontent.com/direct-dok/json-fetch/main/products.json')
                     .then(res => {
                         localStorage.setItem('products', JSON.stringify(res))
                         this.products = JSON.parse(localStorage.getItem('products'))
                     });
-                
+
             } else {
                 this.products = JSON.parse(localStorage.getItem('products'))
             }
 
-            if(!localStorage.getItem('cartProducts')) {
+            if (!localStorage.getItem('cartProducts')) {
                 this.getProducts('https://raw.githubusercontent.com/direct-dok/json-fetch/main/cartProducts.json')
                     .then(res => {
                         localStorage.setItem('cartProducts', JSON.stringify(res))
                         this.cartProduts = JSON.parse(localStorage.getItem('cartProducts'))
                     });
-                
+
             } else {
                 this.cartProduts = JSON.parse(localStorage.getItem('cartProducts'))
             }
         },
-        getStorageCartProduct: function() { // Получить товары корзины из LocalStorage
+        getStorageCartProduct: function () { // Получить товары корзины из LocalStorage
             return JSON.parse(localStorage.getItem('cartProducts'))
         },
-        StorageCartProduct: function(str) { // Записать обновленный список товаров в LocalStorage
+        StorageCartProduct: function (str) { // Записать обновленный список товаров в LocalStorage
             localStorage.setItem('cartProducts', str)
         },
         addCartProducts: function (idProduct) { // Добавление товара в корзину, с проверкой наличия товара в корзине, если товар есть, то увеличиваем количество товара в массиве
@@ -49,13 +76,13 @@ let app = new Vue({
                         this.StorageCartProduct(JSON.stringify(cartStorage))
                         this.cartProduts = this.getStorageCartProduct()
                         noProduct = false
-                    } 
+                    }
                 }
             });
 
-            if(noProduct) {
+            if (noProduct) {
                 this.products.forEach(el => {
-                    if(el.id_product == idProduct) {
+                    if (el.id_product == idProduct) {
                         el.quantity = 1;
                         cartStorage.push(el);
                         this.StorageCartProduct(JSON.stringify(cartStorage))
@@ -96,8 +123,8 @@ let app = new Vue({
                 this.StorageCartProduct(JSON.stringify(cartStorage))
                 this.cartProduts = this.getStorageCartProduct()
             }
-        }, 
-        deleteProductBasket: function(id) { // функция для удаления продукта из корзины
+        },
+        deleteProductBasket: function (id) { // функция для удаления продукта из корзины
             let cartStorage = JSON.parse(localStorage.getItem('cartProducts')) // Получаем список товаров корзины из LocalStorage
             let arrPosition = this.searchElementId(id, cartStorage) // Получаем позицию товара в массиве товаров из LocalStorage
             cartStorage.splice(arrPosition, 1)
@@ -107,15 +134,17 @@ let app = new Vue({
         searchElementId(id, arr) { // Функция хелпер, для нахождения номера элемента в массиве
             let result = null;
             arr.forEach((el, index) => {
-                (el.id_product == id) ? result = index : false;
+                (el.id_product == id) ? result = index: false;
             })
             return result;
         }
     },
     computed: {
-        
+
     },
     mounted() {
         this.checkStorage()
     }
 })
+
+export default app

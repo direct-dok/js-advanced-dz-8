@@ -1,4 +1,4 @@
-Vue.component('pagename', {
+const PageName = {
     props: ['name'], 
     template: `
     <section class="name-page">
@@ -7,4 +7,6 @@ Vue.component('pagename', {
             </div>
         </section>
     `
-})
+}
+
+export default PageName
