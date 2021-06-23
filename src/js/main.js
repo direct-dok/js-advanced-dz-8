@@ -9,7 +9,8 @@ let app = new Vue({
         'advantages-shop': Advantages, 
         'basket-total-price': BasketTotalPrice, 
         'basket': Basket, 
-        'brand-shop': BrandShop
+        'brand-shop': BrandShop, 
+        'catalogs': 
     },
     data: {
         products: [],
