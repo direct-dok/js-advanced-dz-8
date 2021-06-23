@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Layout online shop DZ 1</title>
+</head>
+
+<body>
+<div class="app">
+    
+    <header-shop v-bind:cartprod="cartProduts"></header-shop>
+
+    <main>
+        
+        <pagename name="Shopping cart"></pagename>
+
+        <section class="cart width-1600">
+            <div class="cart__product">
+                
+
+                    <basket :cartproducts="cartProduts" v-if="cartProduts.length" @count-cart-action="controlCountBasket" @delete-product-basket="deleteProductBasket"></basket>
+
+                    <no-cart-product v-else></no-cart-product>
+
+                
+            </div>
+            
+            <basket-total-price :cartpsroducts="cartProduts"></basket-total-price>
+
+        </section>
+    </main>
+
+    <footer-shop></footer-shop>
+
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</body>
+
+</html>

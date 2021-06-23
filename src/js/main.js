@@ -2,6 +2,14 @@ import Advantages from './components/Advantages'
 import BasketTotalPrice from './components/Basket-total-price'
 import Basket from './components/Basket'
 import BrandShop from './components/Brand'
+import Catalogs from './components/Catalog'
+import FilterShop from './components/Filter'
+import FooterShop from './components/Footer'
+import HeaderShop from './components/Header'
+import PageName from './components/Name-page'
+import NoCartProduct from './components/No-cart-product'
+import Pagination from './components/Pagination'
+import Stocks from './components/Stocks'
 
 let app = new Vue({
     el: '.app',
@@ -10,7 +18,14 @@ let app = new Vue({
         'basket-total-price': BasketTotalPrice, 
         'basket': Basket, 
         'brand-shop': BrandShop, 
-        'catalogs': 
+        'catalogs': Catalogs, 
+        'filter-shop': FilterShop, 
+        'footer-shop': FooterShop, 
+        'header-shop': HeaderShop, 
+        'pagename': PageName, 
+        'no-cart-product': NoCartProduct,
+        'pagination-shop': Pagination, 
+        'stocks-shop': Stocks
     },
     data: {
         products: [],
@@ -131,3 +146,5 @@ let app = new Vue({
         this.checkStorage()
     }
 })
+
+export default app

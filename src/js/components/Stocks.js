@@ -1,4 +1,4 @@
-Vue.component('stocks-shop', {
+const Stocks = {
     template: `
     <section class="stocks">
     <div class="width-1600">
@@ -31,4 +31,6 @@ Vue.component('stocks-shop', {
     </div>
 </section>
     `
-})
+}
+
+export default Stocks
