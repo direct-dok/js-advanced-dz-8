@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Layout online shop DZ 1</title>
+<script defer src="main.bundle.js"></script></head>
+
+<body>
+<div class="app">
+    
+    <header-shop v-bind:cartprod="cartProduts"></header-shop>
+
+    <main>
+        
+        <brand-shop></brand-shop>
+
+        <stocks-shop></stocks-shop>
+
+        <section class="products">
+            <div class="width-1600">
+                <h2 class="products__caption">Fetured Items</h2>
+                <p class="products__desctiption">Shop for items based on what we featured in this week</p>
+                <!-- КОМПОНЕНТ КАТАЛОГА -->
+                <catalogs :products="products" @change-add-cart="addCartProducts"></catalogs>
+                <!-- КОМПОНЕНТ КАТАЛОГА -->
+
+                
+                <button type="button" class="products__button-browse">Browse All Product</button>
+            </div>
+        </section>
+        
+        <advantages-shop></advantages-shop>
+
+    </main>
+    
+    <footer-shop></footer-shop>
+
+</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/components/Catalog.js"></script>
+    <script src="js/components/Header.js"></script>
+    <script src="js/components/Brand.js"></script>
+    <script src="js/components/Stocks.js"></script>
+    <script src="js/components/Advantages.js"></script>
+    <script src="js/components/Footer.js"></script>
+    <script src="js/main.js"></script>
+
+    
+</body>
+
+</html>

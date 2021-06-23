@@ -1,4 +1,4 @@
-Vue.component('basket', {
+const Basket = {
     props: ['cartproducts'], 
     data: function() {
         return {
@@ -46,4 +46,6 @@ Vue.component('basket', {
     </li>
     </ul>
     `
-})
+}
+
+export default Basket

@@ -1,4 +1,4 @@
-Vue.component('catalogs', {
+const Catalogs = {
     props: ['products'], 
     data: function() {
         return {
@@ -35,4 +35,6 @@ Vue.component('catalogs', {
         </li>
     </ul>
     `
-})
+}
+
+export default Catalogs
